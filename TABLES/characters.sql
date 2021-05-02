@@ -1,5 +1,1 @@
-SELECT
-    *
-FROM
-    characters;
-
+SELECT name, weapon_type FROM characters;
