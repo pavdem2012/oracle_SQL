@@ -1,1 +1,1 @@
-SELECT name, weapon_type FROM characters ORDER BY weapon_type DESC;
+SELECT * FROM characters WHERE weapon_type = 'pistol';
