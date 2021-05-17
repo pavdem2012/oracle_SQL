@@ -26,19 +26,16 @@ VALUES (6, 'service', 5, 'Kirill', 100000);
 INSERT INTO staff (ID, DEPARTMENT, CHIEF_ID, NAME, SALARY)
 VALUES (7, 'service', 5, 'Stepan', 40000);
 
-/*Делаем запрос "Вывести список сотрудников, получающих заработную плату большую чем у непосредственного руководителя"/*
--- /*"Кривой запрос"*/
--- SELECT NAME FROM STAFF WHERE SALARY > 75000;
---/*"Правильный запрос, но непонятен механизм"
+/*Делаем запрос "Вывести список сотрудников, получающих заработную плату большую чем у непосредственного руководителя"*/
 SELECT a.name, a.salary
 FROM staff  a, staff  b
 WHERE b.id = a.chief_id
 AND a.salary > b.salary
 
-/*Делаем запрос "Вывести список сотрудников, получающих максимальную заработную плату в своем отделе"/*
-SELECT DEPARTMENT, NAME, SALARY 
-FROM STAFF 
-WHERE SALARY = (SELECT MAX(SALARY)FROM STAFF);
+/*Делаем запрос "Вывести список сотрудников, получающих максимальную заработную плату в своем отделе"*/
+SELECT a.department, a.name, a.salary
+FROM staff a
+WHERE a.salary = (SELECT MAX(salary) FROM staff b WHERE b.department = a.department);
 
-/*Делаем запрос "Вывести список отделов, количество сотрудников в которых не превышает 3 человек"/*
+/*Делаем запрос "Вывести список отделов, количество сотрудников в которых не превышает 3 человек"*/
 SELECT DEPARTMENT FROM STAFF GROUP BY DEPARTMENT HAVING COUNT(*) <=3;
