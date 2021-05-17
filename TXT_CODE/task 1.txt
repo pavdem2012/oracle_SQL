@@ -19,3 +19,14 @@ VALUES (4, 2400, 2000, 500);
 SELECT id, cpu_mhz, memory_mb
 FROM computers
 WHERE memory_mb = 3000;
+
+/*Делаем запрос "Показать записи тех компьютеров, у которых минимальный объём жесткого диска. Вывод: hdd"*/
+SELECT MIN(hdd_gb)
+FROM computers;
+
+/*Делеаем запрос "Вывести количество компьютеров с минимальным объемом жесткого диска. Вывод: count, hdd"*/
+SELECT COUNT(*)
+FROM computers
+WHERE hdd_gb =
+(SELECT MIN(hdd_gb)
+FROM computers);
