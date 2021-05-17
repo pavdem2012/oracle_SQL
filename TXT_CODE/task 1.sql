@@ -25,8 +25,11 @@ SELECT MIN(hdd_gb)
 FROM computers;
 
 /*Делеаем запрос "Вывести количество компьютеров с минимальным объемом жесткого диска. Вывод: count, hdd"*/
-SELECT COUNT(*)
+SELECT count(*), hdd_gb
 FROM computers
-WHERE hdd_gb =
-(SELECT MIN(hdd_gb)
-FROM computers);
+GROUP BY hdd_gb
+HAVING hdd_gb = (select MIN(hdd_gb) from computers )
+/*Альтернативное решение*/
+SELECT  COUNT(*), MIN(hdd_gb) 
+FROM computers
+WHERE hdd_gb=(SELECT MIN(hdd_gb) FROM computers);
