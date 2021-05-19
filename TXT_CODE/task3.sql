@@ -30,9 +30,10 @@ SELECT n_item AS Номер, name Название, color Цвет
 FROM parts
 WHERE color IN ('Зеленый', 'Голубой');
 /*Альтернативное решение*/
-SELECT  n_item AS Номер , name Название, color Цвет 
+SELECT n_item AS Номер, name Название, color Цвет 
 FROM parts
-WHERE color != 'Красный';
+WHERE color = 'Зеленый'
+OR color = 'Голубой';
 
 /*Делаем запрос "Вывести детали вес которых от 12 до 16 грамм. Название столбцов: "Вес", "Город""*/
 SELECT weight AS Вес, town Город
