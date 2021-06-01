@@ -39,3 +39,4 @@ WHERE a.salary = (SELECT MAX(salary) FROM staff b WHERE b.department = a.departm
 
 /*Делаем запрос "Вывести список отделов, количество сотрудников в которых не превышает 3 человек"*/
 SELECT DEPARTMENT FROM STAFF GROUP BY DEPARTMENT HAVING COUNT(*) <=3;
+DROP TABLE staff;

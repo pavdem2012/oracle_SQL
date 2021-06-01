@@ -1,5 +1,33 @@
 /*Присоединение таблиц в запросах SQL join*/
 PROMPT Присоединение таблиц в запросах SQL join;
+/*Создаем таблицу personal*/
+CREATE TABLE personal (id INT, name VARCHAR(20), post_id INT);
+
+/*Добавляем четыре строки с данными*/
+INSERT INTO personal 
+VALUES(1, 'Владимир', 1);
+
+INSERT INTO personal (id, name, post_id)
+VALUES (2, 'Татьяна', 2);
+
+INSERT INTO personal (id, name, post_id)
+VALUES (3, 'Александр', 6);
+
+INSERT INTO personal (id, name, post_id)
+VALUES (4, 'Борис', 2);
+
+/*Создаем таблицу positions*/
+CREATE TABLE positions (id INT, name VARCHAR(40));
+
+/*Добавляем три строки с данными*/
+INSERT INTO positions 
+VALUES(1, 'Дизайнер');
+
+INSERT INTO positions (id, name)
+VALUES (2, 'Редактор');
+
+INSERT INTO positions (id, name)
+VALUES (3, 'Программист');
 /*Внутреннее присоединение. Равносильно просто JOIN или CROSS JOIN.*/
 PROMPT Вывод запроса: Внутреннее присоединение. Равносильно просто JOIN или CROSS JOIN.;
 SELECT
@@ -131,3 +159,5 @@ FROM
 WHERE
     personal.id IS NULL
 );
+DROP TABLE personal;
+DROP TABLE positions;

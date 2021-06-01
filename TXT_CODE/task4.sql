@@ -34,3 +34,5 @@ SELECT personal.name AS Имя, positions.name Должность
 FROM personal
 INNER JOIN positions ON personal.post_id = positions.id
 WHERE positions.name = 'Редактор';
+DROP TABLE personal;
+DROP TABLE positions;

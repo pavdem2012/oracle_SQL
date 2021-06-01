@@ -33,3 +33,4 @@ HAVING hdd_gb = (select MIN(hdd_gb) from computers )
 SELECT  COUNT(*), MIN(hdd_gb) 
 FROM computers
 WHERE hdd_gb=(SELECT MIN(hdd_gb) FROM computers);
+DROP TABLE computers;
