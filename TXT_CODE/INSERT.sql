@@ -20,7 +20,6 @@ INSERT INTO planetwithoutrings VALUES (
     'no',
     'Christiaan Huygens'
 );
-
 INSERT INTO planetwithoutrings (
     id,
     planetname,
@@ -38,7 +37,6 @@ INSERT INTO planetwithoutrings (
     'no',
     'Nicolaus Copernicus'
 );
-
 INSERT INTO planetwithoutrings (
     id,
     planetname,
@@ -82,7 +80,6 @@ INSERT INTO planetswithrings (
     10759.22,
     'yes'
 );
-
 INSERT INTO planetswithrings (
     id,
     planetname,
@@ -161,10 +158,8 @@ SELECT
     openingyear  "год открытия"
 FROM
     planetsview;
-
 DROP VIEW planetsview;
 /*Удаляем обе таблицы*/
 PROMPT Удаляем обе таблицы
 DROP TABLE planetswithrings;
-
 DROP TABLE planetwithoutrings;
