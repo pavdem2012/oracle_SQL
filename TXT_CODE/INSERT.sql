@@ -146,7 +146,25 @@ WHERE
     ( planetname LIKE 'N%'
       OR planetname LIKE '%s' )
     AND havingrings = 'no';
+/*Создаем представление, используя оператор CREATE VIEW*/
+CREATE VIEW planetsview AS
+    SELECT
+        planetname,
+        openingyear,
+        opener
+    FROM
+        planetwithoutrings;
+PROMPT Выводим представление PlanetsView
+SELECT
+    planetname   AS название,
+    opener       "кто открыл",
+    openingyear  "год открытия"
+FROM
+    planetsview;
+
+DROP VIEW planetsview;
 /*Удаляем обе таблицы*/
 PROMPT Удаляем обе таблицы
 DROP TABLE planetswithrings;
+
 DROP TABLE planetwithoutrings;
