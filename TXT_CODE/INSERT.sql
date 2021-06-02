@@ -115,7 +115,38 @@ INSERT INTO planetwithoutrings
         opener
     FROM
         planetswithrings;
+/*Делаем запросы с использованием предикатов AND и OR*/
+PROMPT Записи планет, у которых радиус планеты меньше 10000 и открыты после 1620
+SELECT
+    id,
+    planetname   AS название,
+    radius       радиус,
+    sunseason    "период обращени",
+    openingyear  "год открытия",
+    havingrings  кольца,
+    opener       "кто открыл"
+FROM
+    planetwithoutrings
+WHERE
+        radius < 10000
+    AND openingyear > 1620
+ORDER BY
+    opener;    
+PROMPT Записи планет, названия которых начинаются с буквы «N» или заканчиваются на букву «s» и не имеют колец:
+SELECT
+    id,
+    planetname   AS название,
+    radius       радиус,
+    sunseason    "период обращени",
+    openingyear  "год открытия",
+    opener       "кто открыл"
+FROM
+    planetwithoutrings
+WHERE
+    ( planetname LIKE 'N%'
+      OR planetname LIKE '%s' )
+    AND havingrings = 'no';
 /*Удаляем обе таблицы*/
 PROMPT Удаляем обе таблицы
-DROP TABLE planetwithoutrings;
 DROP TABLE planetswithrings;
+DROP TABLE planetwithoutrings;
